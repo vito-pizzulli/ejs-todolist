@@ -9,23 +9,27 @@
                 <textarea name="description" id="description" placeholder="Enter your To-Do description" required></textarea>
                 <button type="submit">Add</button>
             </form>
-            <img src="./images/papyrus.webp" alt="Papyrus animated gif" draggable="false">
+            <img src="./images/papyrus.webp" alt="Papyrus animated image" draggable="false">
         </div>
-    
-        <div class="edit-item">
-            <% if (editShow) { %>
-                <h2>Edit To-Do</h2>
-                <form action="/put" method="POST">
-                    <input type="hidden" name="editedItem" value="<%= locals.itemToEdit %>">
-                    <input type="text" name="name" id="name" placeholder="Enter your To-Do title" value="<%= locals.nameToEdit %>">
-                    <textarea name="description" id="description" placeholder="Enter your To-Do description"><%= locals.descriptionToEdit %></textarea>
-                    <button type="submit">Save</button>
-                </form>
-                <form action="/cancel-edit" method="POST">
-                    <button type="submit">Cancel</button>
-                </form>
-            <% } %>
-        </div>
+
+        <% if (editShow) { %>
+            <div class="overlay">
+                <div class="edit-item">
+            
+                    <h2>Edit To-Do</h2>
+                    <form action="/put" method="POST">
+                        <input type="hidden" name="editedItem" value="<%= locals.itemToEdit %>">
+                        <input type="text" name="name" id="name" placeholder="Enter your To-Do title" value="<%= locals.nameToEdit %>">
+                        <textarea name="description" id="description" placeholder="Enter your To-Do description"><%= locals.descriptionToEdit %></textarea>
+                        <button type="submit">Save</button>
+                    </form>
+                    <form action="/cancel-edit" method="POST">
+                        <button type="submit">Cancel</button>
+                    </form>
+                </div>
+                <img src="./images/mettaton.gif" alt="Mettaton animated image" draggable="false">
+            </div>
+        <% } %>
     </aside>
     <div class="item-list">
         <% if (toDoList.length > 0) { %>
@@ -49,7 +53,7 @@
         <% } else { %>
             <div class="empty-list">
                 <h2>You have nothing left to do. It's party time!</h2>
-                <img src="./images/frisk.gif" alt="John Travolta animated image" draggable="false">
+                <img src="./images/frisk.gif" alt="Frisk animated image" draggable="false">
             </div>
         <% } %>
     </div>
