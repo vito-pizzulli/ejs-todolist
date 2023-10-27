@@ -1,0 +1,58 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container">
+    <aside>
+        <div class="add-item">
+            <h2>Add New To-Do</h2>
+            <form action="/submit" method="POST">
+                <input type="text" name="name" id="name" placeholder="Enter your To-Do title" required>
+                <textarea name="description" id="description" placeholder="Enter your To-Do description" required></textarea>
+                <button type="submit">Add</button>
+            </form>
+            <img src="./images/papyrus.webp" alt="Papyrus animated gif" draggable="false">
+        </div>
+    
+        <div class="edit-item">
+            <% if (editShow) { %>
+                <h2>Edit To-Do</h2>
+                <form action="/put" method="POST">
+                    <input type="hidden" name="editedItem" value="<%= locals.itemToEdit %>">
+                    <input type="text" name="name" id="name" placeholder="Enter your To-Do title" value="<%= locals.nameToEdit %>">
+                    <textarea name="description" id="description" placeholder="Enter your To-Do description"><%= locals.descriptionToEdit %></textarea>
+                    <button type="submit">Save</button>
+                </form>
+                <form action="/cancel-edit" method="POST">
+                    <button type="submit">Cancel</button>
+                </form>
+            <% } %>
+        </div>
+    </aside>
+    <div class="item-list">
+        <% if (toDoList.length > 0) { %>
+            <ul>
+                <% toDoList.forEach(function(toDo) { %>
+                    <li>
+                        <p><%= toDo.name %></p>
+                        <p><%= toDo.description %></p>
+                        <form action="/edit" method="POST">
+                            <input type="hidden" name="itemToEdit" value="<%= toDo.id %>">
+                            <button type="submit">Edit</button>
+                        </form>
+                        
+                        <form action="/delete" method="POST">
+                            <input type="hidden" name="itemToDelete" value="<%= toDo.id %>">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </li>
+                <% }); %>
+            </ul>
+        <% } else { %>
+            <div class="empty-list">
+                <h2>You have nothing left to do. It's party time!</h2>
+                <img src="./images/frisk.gif" alt="John Travolta animated image" draggable="false">
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include("partials/footer.ejs") %>

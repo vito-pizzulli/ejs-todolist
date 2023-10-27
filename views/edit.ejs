@@ -1,0 +1,10 @@
+<%- include("partials/header.ejs") %>
+
+<h1>Add New</h1>
+<form action="/submit" method="PUT">
+    <input type="text" name="name" id="name" placeholder=" <%=  %> >" required>
+    <input type="text" name="description" id="description" placeholder="Description" required>
+    <button type="submit">Add</button>
+</form>
+
+<%- include("partials/footer.ejs") %>

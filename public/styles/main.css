@@ -1,0 +1,156 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'VT323', monospace;
+    background-color: black;
+}
+
+header {
+    background-color: black;
+    height: 10vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 3px solid white;
+}
+
+main {
+    height: 85vh;
+}
+
+footer {
+    background-color: black;
+    color: #f49e26;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    border-top: 3px solid white;
+}
+
+div.container {
+    display: flex;
+    height: 100%;
+}
+
+aside {
+    width: 20vw;
+}
+
+div.add-item,
+div.edit-item {
+    color: white;
+    border-right: 3px solid white;
+    padding: 1rem;
+    text-align: center;
+}
+
+div.add-item button,
+div.edit-item button {
+    margin-bottom: 1rem;
+}
+
+div.add-item {
+    height: 60%;
+}
+
+div.edit-item {
+    height: 40%;
+}
+
+div.add-item input,
+div.add-item textarea,
+div.edit-item input,
+div.edit-item textarea {
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: 2px solid white;
+    border-radius: 20px;
+    padding: 1rem;
+    margin-bottom: .5rem;
+    color: #f49e26;
+}
+
+div.add-item input,
+div.edit-item input {
+    height: 25px;
+}
+
+div.add-item textarea,
+div.edit-item textarea {
+    height: 50px;
+    margin-bottom: 1rem;
+}
+
+div.item-list {
+    width: 80vw;
+    height: 100%;
+    color: white;
+    background-image: url(../images/home.gif);
+    background-size: cover;
+    background-position: center;
+    overflow-y: scroll;
+}
+
+div.item-list ul li {
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 3px solid white;
+}
+
+div.item-list ul li p {
+    overflow: hidden;
+}
+
+div.item-list ul li p:first-of-type {
+    width: 20%;
+    color: #f49e26;
+}
+
+div.item-list ul li p:nth-of-type(2) {
+    width: 60%;
+}
+
+div.empty-list {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 1rem;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #f49e26;
+}
+
+h2 {
+    background-color: black;
+    padding: .5rem 1rem;
+    border-radius: 20px;
+    font-size: 2rem;
+    color: #f49e26;
+}
+
+p {
+    font-size: 1.5rem;
+}
+
+button {
+    padding: .5rem 1rem;
+    background-color: black;
+    color: #f49e26;
+    border: 2px solid white;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+}
