@@ -143,6 +143,10 @@ div.empty-list {
     padding: 1rem;
 }
 
+div.empty-list h2 {
+    border: 2px solid white;
+}
+
 div.overlay {
     background-color: rgba(0, 0, 0, 0.5);
     position: absolute;
